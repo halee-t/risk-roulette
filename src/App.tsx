@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Question from "./components/question";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         >
           Learn React
         </a>
+        <div>
+        </div>
       </header>
     </div>
   );
