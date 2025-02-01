@@ -1,0 +1,42 @@
+[
+    {
+    "title": "Oh no! There has been a fire! What insurance plan would have been optimal?",
+    "answers": ["drink oil","drink oil!","fire insurance or something, idk","drink oil!!!!!"],
+    "correctness": [false,false,true,false]
+    },
+    {
+        "title": "AHHHHHHHHH, there has been a flood!",
+        "answers": [],
+        "correctness": [true,false,false,false]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    },
+    {
+        "title": "",
+        "answers": [],
+        "correctness":[]
+    }
+]
