@@ -2,16 +2,19 @@ import Answer from "./answer"
 interface questionProps{
     question:string;
     answers:string[];
+    correct:boolean[];
 }
 
 const Question: React.FC<questionProps> = (props) => {
     return (<>
-    <div>
-        <h1>{props.question}</h1>
+    <div className="font-semibold font-sans text-center underline">
+        {props.question}
     </div>
     <div className="flex flex-col w-1/2 mt-1 gap-1">
-        {props.answers.map((res) => (
-            <Answer answerStr = {res}></Answer>
+        {props.answers.map((res, index) => (
+            <div>
+            <Answer answerStr = {res} correctness={props.correct[index]}></Answer>
+            </div>
         ))}
     </div>
     </>)
