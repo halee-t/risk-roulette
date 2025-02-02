@@ -18,14 +18,13 @@ const Answer: React.FC<answerProps> = (props) => {
         ...(props.correctness
           ? ["bg-green-500", "hover:bg-green-600"]
           : ["bg-red-500", "hover:bg-red-600"]),
-      ]); 
+      ]);
 
-      if (!props.correctness){
+      if (!props.correctness) {
         props.onTakeDamage(10);
-      } else if
-        (props.correctness){
-          props.onGetPoints(1000);
-        }
+      } else if (props.correctness) {
+        props.onGetPoints(100);
+      }
       // Apply the correct or incorrect colors
     }
   };
