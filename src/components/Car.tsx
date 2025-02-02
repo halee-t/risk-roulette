@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface CarProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void;
 }
 
-const Car: React.FC<CarProps> = ({ onTakeDamage }) => {
+const Car: React.FC<CarProps> = ({ onTakeDamage, onGetPoints }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -47,6 +48,7 @@ const Car: React.FC<CarProps> = ({ onTakeDamage }) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

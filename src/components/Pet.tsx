@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface PetProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void
 }
 
-const Pet: React.FC<PetProps> = ( {onTakeDamage} ) => {
+const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -51,6 +52,7 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage} ) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

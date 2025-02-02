@@ -6,6 +6,7 @@ interface questionProps{
     answers:string[];
     correct:boolean[];
     onTakeDamage: (damage: number) => void;
+    onGetPoints: (earn: number) => void;
 }
 
 const Question: React.FC<questionProps> = (props) => {
@@ -19,6 +20,7 @@ const Question: React.FC<questionProps> = (props) => {
                 <Answer 
                     answerStr = {res} 
                     onTakeDamage={props.onTakeDamage}
+                    onGetPoints={props.onGetPoints}
                     correctness={props.correct[index]}
                 />
             </div>

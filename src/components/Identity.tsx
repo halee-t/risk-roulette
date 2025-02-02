@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface IdentifyProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void;
 }
 
-const Identity: React.FC<IdentifyProps> = ({ onTakeDamage }) => {
+const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -46,6 +47,7 @@ const Identity: React.FC<IdentifyProps> = ({ onTakeDamage }) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

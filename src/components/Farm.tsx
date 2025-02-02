@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface FarmProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void;
 }
 
-const Farm: React.FC<FarmProps> = ({ onTakeDamage }) => {
+const Farm: React.FC<FarmProps> = ({ onTakeDamage, onGetPoints }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -51,6 +52,7 @@ const Farm: React.FC<FarmProps> = ({ onTakeDamage }) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>
