@@ -8,6 +8,7 @@ import Pet from "./Pet";
 import Farm from "./Farm";
 import HealthBar from "./HealthBar";
 import Score from "./score";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
 interface Props {
   participants: string[];
@@ -191,14 +192,44 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
   // Function to handle taking damage
   const handleTakeDamage = (damage: number) => {
-    setCurrentHealth((prevHealth) => Math.max(prevHealth - damage, 0)); // Ensure health doesn't go below 0
+    setCurrentHealth((prevHealth) => {
+      const newHealth = Math.max(prevHealth - damage, 0); // Ensure health doesn't go below 0
+      if (newHealth === 0) {
+        setIsGameOver(true); // Set game over when health reaches 0
+      }
+      return newHealth;
+    });
   };
 
-  const [currentPoints, setCurrentPoints] = useState(100);
+  const navigate = useNavigate();
+
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [isWon, setIsWon] = useState(false);
+
+  useEffect(() => {
+    if (isGameOver) {
+      navigate('/gameover');
+    }
+  }, [isGameOver]);
+
+  useEffect(() => {
+    if (isWon) {
+      navigate('/winner');
+    }
+  }, [isWon]);
+
+  const [currentPoints, setCurrentPoints] = useState(0);
 
   const addPoints = (earn: number) => {
-    setCurrentPoints((prevPoints) => prevPoints + earn);
+    setCurrentPoints((prevPoints) => {
+      const newPoints = prevPoints + earn; // Ensure health doesn't go below 0
+      if (newPoints >= 500) {
+        setIsWon(true); // Set game over when health reaches 0
+      }
+      return newPoints;
+    });
   };
+
 
   return (
     <div className="flex justify-between items-center mt-[5rem] mx-[8rem]">
