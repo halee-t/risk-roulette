@@ -28,7 +28,7 @@ const Identity: React.FC = () => {
   }
   return (
     <div className="font-semibold font-sans text-center flex flex-col justify-center items-center">
-      <div className="flex flex-col items-center mb-[3rem]">
+      <div className="flex flex-col items-center mb-[3rem] px-24">
         <h1 className="text-primary text-lg">
           "Identify Theft Isn't a Joke Jim!" - Dwight
         </h1>

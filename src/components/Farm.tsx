@@ -27,7 +27,7 @@ const Farm: React.FC = () => {
   }
   return (
     <div className="font-semibold font-sans text-center flex flex-col justify-center items-center">
-      <div className="flex flex-col items-center mb-[3rem]">
+      <div className="flex flex-col items-center mb-[3rem] px-24">
         <h1 className="text-primary text-lg">
           Franklin was in way over his head when he decided to pursue farming.
           He didn't consider the unpredictable weather conditions, loss of
