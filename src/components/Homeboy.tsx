@@ -42,7 +42,7 @@ const Homeboy = () => {
           </div>
         </div>
       </section>
-      <section className="h-64"></section>
+      <section className="h-52"></section>
     </div>
   );
 };
