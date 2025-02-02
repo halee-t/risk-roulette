@@ -8,6 +8,7 @@ import Pet from "./Pet";
 import Farm from "./Farm";
 import HealthBar from "./HealthBar";
 import Score from "./score";
+import BackgroundMusic from "./BackgroundMusic";
 
 interface Props {
   participants: string[];
@@ -122,6 +123,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     // returns if spinning is already true
     if (spinning) return;
     setSpinning(true);
+    playSpinningSound();
 
     // Set the number of full rotations and calculate final rotation
     const numFullRotations = Math.random() * 5 + 5; // Between 5 and 10 full rotations
@@ -174,8 +176,19 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   useEffect(() => {
     if (showPopup) {
       startConfetti();
+      playYay();
     }
   }, [showPopup]);
+
+  const playSpinningSound = () => {
+    const spinning = new Audio("/spinning.mp3");
+    spinning.play();
+  };
+
+  const playYay = () => {
+    const yay = new Audio("/yay.mp3");
+    yay.play();
+  };
 
   const startConfetti = () => {
     confetti({
@@ -268,6 +281,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           )}
         </div>
       )}
+      <BackgroundMusic />
     </div>
   );
 };
