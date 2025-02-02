@@ -275,7 +275,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       </div>
 
       {showPopup && popupWinner && (
-        <div className="w-[85%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
+        <div className="w-[85%] h-[85%] fixed z-50 top-[55%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
           <button
             onClick={closePopup}
             className="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-gray-700"
@@ -285,22 +285,46 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
           {/* Conditionally Render the Components */}
           {popupWinner === "Fire" && (
-            <Fire onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Fire
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
           {popupWinner === "Flood" && (
-            <Flood onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Flood
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
           {popupWinner === "Pet Sickness" && (
-            <Pet onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Pet
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
           {popupWinner === "Identify Theft" && (
-            <Identity onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Identity
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
           {popupWinner === "Car Accident" && (
-            <Car onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Car
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
           {popupWinner === "Farm Fiasco" && (
-            <Farm onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
+            <Farm
+              onTakeDamage={handleTakeDamage}
+              onGetPoints={addPoints}
+              onTimeExpire={closePopup}
+            />
           )}
         </div>
       )}
