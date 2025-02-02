@@ -18,6 +18,31 @@ const Car: React.FC<CarProps> = ({ onTakeDamage, onGetPoints }) => {
     null
   );
 
+  const [timer,setTimer] = useState(20)
+
+  var timerDamage = 0
+  function damage(check:number){
+    if(check == 0){
+      onTakeDamage(10)
+      timerDamage++
+    }
+  }
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          damage(timerDamage)
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
+
   useEffect(() => {
     // Pick a random question from the answerData
     const randomQuestionIndex = Math.floor(
@@ -38,6 +63,7 @@ const Car: React.FC<CarProps> = ({ onTakeDamage, onGetPoints }) => {
           Americans spend an average of 6% of their waking hours in their
           cars...Franky don't chance it!
         </h1>
+        <h1>Answer in {timer} seconds</h1>  
         <img src="./car-crash.png" className="w-80 h-auto -mt-40 mb-12" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">

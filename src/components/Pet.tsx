@@ -28,6 +28,30 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
     setCurrentQuestion(selectedQuestion);
   }, []);
 
+  const [timer,setTimer] = useState(20)
+
+  var timerDamage = 0
+  function damage(check:number){
+    if(check == 0){
+      onTakeDamage(10)
+      timerDamage++
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          damage(timerDamage)
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
+
   if (!currentQuestion) {
     return <div>Loading...</div>;
   }
