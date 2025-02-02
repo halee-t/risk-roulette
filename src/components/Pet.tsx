@@ -57,6 +57,7 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) =>
           has to remember to fed, entertain, and clean up after two living
           beings.
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img
           src="./bubbleboy_dog.png"
           className="w-80 h-auto object-cover overflow-hidden -mt-32"

@@ -55,6 +55,7 @@ const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints, onTimeEx
         <h1 className="text-primary text-lg">
           "Identify Theft Isn't a Joke Jim!" - Dwight
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img src="./bubbleboy_guy_fawkes.png" className="w-64 h-auto" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">

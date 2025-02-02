@@ -55,6 +55,7 @@ const Flood: React.FC<FloodProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }
         <h1 className="text-primary text-lg">
           Live on the water they said..... It would be fun they said.....
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img src="./flood_house.png" className="w-80 h-auto -mt-24" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">
