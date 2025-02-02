@@ -1,5 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import confetti from "canvas-confetti";
+import Identity from "./Identity";
+import Fire from "./Fire";
+import Flood from "./Flood";
+import Car from "./Car";
+import Pet from "./Pet";
+import Farm from "./Farm";
 
 interface Props {
   participants: string[];
@@ -23,6 +29,10 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
   // popup
   const [showPopup, setShowPopup] = useState(false);
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   // displays winner name
   const [popupWinner, setPopupWinner] = useState<string | null>(null);
@@ -93,11 +103,11 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     ctx.rotate(rotation * (Math.PI / 180)); // Reset rotation
     ctx.translate(-radius, -radius);
 
-    // Draw the static indicator, moved to top
-    const indicatorLength = 10; // actually the width lol since I moved it
-    const indicatorWidth = 70; //it's actually the height lol since I moved it
+    // Draw the static indicator
+    const indicatorLength = 50;
+    const indicatorWidth = 10;
     ctx.save();
-    ctx.translate(canvas.width / 2, 0); //positions indicator at the top
+    ctx.translate(canvas.width, canvas.height / 2);
     ctx.beginPath();
     ctx.moveTo(-indicatorLength, -indicatorWidth / 2);
     ctx.lineTo(0, -indicatorWidth / 2);
@@ -165,8 +175,6 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   useEffect(() => {
     if (showPopup) {
       startConfetti();
-      const timer = setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
-      return () => clearTimeout(timer);
     }
   }, [showPopup]);
 
@@ -202,8 +210,22 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       </button>
       {showPopup && popupWinner && (
         <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
+          <button
+            onClick={closePopup}
+            className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-gray-700"
+          >
+            X
+          </button>
           <h2>Congrats!</h2>
           <h3>{popupWinner}</h3>
+
+          {/* Conditionally Render the Components */}
+          {popupWinner === "Fire" && <Fire />}
+          {popupWinner === "Flood" && <Flood />}
+          {popupWinner === "Pet Sickness" && <Pet />}
+          {popupWinner === "Identify Theft" && <Identity />}
+          {popupWinner === "Car Accident" && <Car />}
+          {popupWinner === "Farm Fiasco" && <Farm />}
         </div>
       )}
     </div>
