@@ -1,4 +1,5 @@
 import React from "react";
+import BackgroundMusic from "./BackgroundMusic";
 
 const Landing = () => {
   return (
@@ -19,6 +20,7 @@ const Landing = () => {
           </div>
         </section>
       </div>
+      
     </>
   );
 };
