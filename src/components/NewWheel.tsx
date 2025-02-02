@@ -89,7 +89,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillStyle = "white";
-      ctx.font = "16px Arial semibold";
+      ctx.font = "20px Arial semibold";
       ctx.shadowColor = "rgba(0, 0, 0, 0.7)";
       ctx.shadowOffsetX = 1;
       ctx.shadowOffsetY = 1;
@@ -196,7 +196,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   return (
     <div className="flex flex-col justify-center items-center mt-[5rem]">
       <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Health Bar Example</h1>
+        <h1 className="text-2xl font-bold mb-4">Health Bar Example</h1>
         <HealthBar
           currentHealth={currentHealth}
           maxHealth={maxHealth}
@@ -234,12 +234,20 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           </button>
 
           {/* Conditionally Render the Components */}
-          {popupWinner === "Fire" && <Fire onTakeDamage={handleTakeDamage}/>}
-          {popupWinner === "Flood" && <Flood onTakeDamage={handleTakeDamage}/>}
-          {popupWinner === "Pet Sickness" && <Pet onTakeDamage={handleTakeDamage}/>}
-          {popupWinner === "Identify Theft" && <Identity onTakeDamage={handleTakeDamage}/>}
-          {popupWinner === "Car Accident" && <Car onTakeDamage={handleTakeDamage}/>}
-          {popupWinner === "Farm Fiasco" && <Farm onTakeDamage={handleTakeDamage} />}
+          {popupWinner === "Fire" && <Fire onTakeDamage={handleTakeDamage} />}
+          {popupWinner === "Flood" && <Flood onTakeDamage={handleTakeDamage} />}
+          {popupWinner === "Pet Sickness" && (
+            <Pet onTakeDamage={handleTakeDamage} />
+          )}
+          {popupWinner === "Identify Theft" && (
+            <Identity onTakeDamage={handleTakeDamage} />
+          )}
+          {popupWinner === "Car Accident" && (
+            <Car onTakeDamage={handleTakeDamage} />
+          )}
+          {popupWinner === "Farm Fiasco" && (
+            <Farm onTakeDamage={handleTakeDamage} />
+          )}
         </div>
       )}
     </div>
