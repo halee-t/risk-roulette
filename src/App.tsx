@@ -4,7 +4,6 @@ import "./App.css";
 import Landing from "./components/Landing";
 import Navbar from "./components/Navbar";
 import Homeboy from "./components/Homeboy";
-import Wheel from "./components/Wheel";
 import { NewWheel } from "./components/NewWheel";
 
 function App() {
