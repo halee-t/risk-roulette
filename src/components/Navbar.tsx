@@ -16,7 +16,9 @@ const Navbar: React.FC = () => {
           <Link to="/">
             <img src="./logo.png" className="w-12" />
           </Link>
-          <h1 className="text-2xl text-primary">Risk Roulette</h1>
+          <h1 className="text-2xl text-primary hidden md:block">
+            Risk Roulette
+          </h1>
         </div>
 
         {/* Nav Links */}

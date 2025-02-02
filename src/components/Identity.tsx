@@ -11,12 +11,30 @@ interface QuestionProps {
 interface IdentifyProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints }) => {
+const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
+
+  const [timer,setTimer] = useState(20)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          onTakeDamage(10)
+          onTimeExpire()
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
 
   useEffect(() => {
     // Pick a random question from the answerData
@@ -37,6 +55,7 @@ const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints }) => {
         <h1 className="text-primary text-lg">
           "Identify Theft Isn't a Joke Jim!" - Dwight
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img src="./bubbleboy_guy_fawkes.png" className="w-64 h-auto" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">

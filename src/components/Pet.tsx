@@ -10,10 +10,11 @@ interface QuestionProps {
 
 interface PetProps {
   onTakeDamage: (damage: number) => void;
-  onGetPoints: (earn: number) => void
+  onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
+const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -28,6 +29,23 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
     setCurrentQuestion(selectedQuestion);
   }, []);
 
+  const [timer,setTimer] = useState(20)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          onTakeDamage(10)
+          onTimeExpire()
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
+
   if (!currentQuestion) {
     return <div>Loading...</div>;
   }
@@ -39,6 +57,7 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
           has to remember to fed, entertain, and clean up after two living
           beings.
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img
           src="./bubbleboy_dog.png"
           className="w-80 h-auto object-cover overflow-hidden -mt-32"

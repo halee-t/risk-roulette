@@ -11,12 +11,30 @@ interface QuestionProps {
 interface FloodProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Flood: React.FC<FloodProps> = ({ onTakeDamage, onGetPoints }) => {
+const Flood: React.FC<FloodProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
+
+  const [timer,setTimer] = useState(20)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          onTakeDamage(10)
+          onTimeExpire()
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
 
   useEffect(() => {
     // Pick a random question from the answerData
@@ -37,6 +55,7 @@ const Flood: React.FC<FloodProps> = ({ onTakeDamage, onGetPoints }) => {
         <h1 className="text-primary text-lg">
           Live on the water they said..... It would be fun they said.....
         </h1>
+        <h1>Answer in {timer} seconds</h1>
         <img src="./flood_house.png" className="w-80 h-auto -mt-24" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">

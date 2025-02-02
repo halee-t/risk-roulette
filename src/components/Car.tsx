@@ -11,12 +11,34 @@ interface QuestionProps {
 interface CarProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Car: React.FC<CarProps> = ({ onTakeDamage, onGetPoints }) => {
+const Car: React.FC<CarProps> = ({
+  onTakeDamage,
+  onGetPoints,
+  onTimeExpire,
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
+
+  const [timer, setTimer] = useState(20);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => {
+        if (prevTimer > 0) {
+          return prevTimer - 1;
+        } else {
+          onTakeDamage(10);
+          onTimeExpire();
+          return 0;
+        }
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
   useEffect(() => {
     // Pick a random question from the answerData
@@ -38,7 +60,8 @@ const Car: React.FC<CarProps> = ({ onTakeDamage, onGetPoints }) => {
           Americans spend an average of 6% of their waking hours in their
           cars...Franky don't chance it!
         </h1>
-        <img src="./car-crash.png" className="w-80 h-auto -mt-40 mb-12" />
+        <h1>Answer in {timer} seconds</h1>
+        <img src="./car-crash.png" className="w-80 h-auto -mt-40 mb-14" />
       </div>
       <section className="px-12 flex flex-col items-center justify-center gap-8">
         <div className="text-primary text-xl">{currentQuestion.question}</div>

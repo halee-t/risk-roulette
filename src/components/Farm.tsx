@@ -11,12 +11,30 @@ interface QuestionProps {
 interface FarmProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Farm: React.FC<FarmProps> = ({ onTakeDamage, onGetPoints }) => {
+const Farm: React.FC<FarmProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
+
+  const [timer,setTimer] = useState(20)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimer(prevTimer => {
+        if(prevTimer > 0){
+          return prevTimer - 1
+        }else{
+          onTakeDamage(10)
+          onTimeExpire()
+          return 0
+        }
+      })
+    },1000)
+    return () => clearInterval(interval)
+  }, [timer])
 
   useEffect(() => {
     // Pick a random question from the answerData
@@ -39,6 +57,7 @@ const Farm: React.FC<FarmProps> = ({ onTakeDamage, onGetPoints }) => {
           He didn't consider the unpredictable weather conditions, loss of
           livestock, or failing equipment
         </h1>
+        <h1>Answer in {timer} seconds</h1>  
         <img
           src="./farm_bubbleboy.png"
           className="w-80 h-auto object-cover overflow-hidden -mt-20"
