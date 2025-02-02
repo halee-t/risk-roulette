@@ -1,0 +1,28 @@
+{
+    "questions": [
+    {
+        "question": "What kind of technologies come with Pet insurance?",
+        "answers": ["None",
+            "Only next-gen tags",
+            "Pet cloud, real time GPS integration and next-gen tags",
+            "Cutting edge technology!"],
+        "correct": [false,false,true,false]
+    },
+    {
+        "question": "Will pet insurance cover conditions your pet has had since birth?",
+        "answers": ["Congenital conditions are covered up until $2000 a year",
+            "Yes, congenital conditions are covered",
+            "No",
+            "Only very specific ones"],
+        "correct": [false,true,false,false]
+    },
+    {
+        "question": "Will pet insurance cover a visit to a special vet?",
+        "answers": ["No",
+            "Only the first time",
+            "Only once a year",
+            "Yes!"],
+        "correct": [false,false,false,true]
+    }
+    ]
+}

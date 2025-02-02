@@ -1,0 +1,36 @@
+{
+    "questions" : [
+        {
+            "question": "Under what clause is homie protected if he gets in an accident and goes to the hospital?",
+            "answers": ["Medical Payments and Personal Injury Protection",
+                "He will not be protected",
+                "Auto Harm Protection",
+                "Vehicular Payment Protection"],
+            "correct": [true,false,false,false]
+        },
+        {
+            "question": "What other kinds of insurance fall under Auto-Owners Insurances' Multi-Policy Discount?",
+            "answers": ["Auto insurance and home insurance",
+                "Auto insurance and boating insurance",
+                "Auto insurance and life insurance",
+                "Auto insurance and farm insurance"],
+            "correct": [false,false,true,false]
+        },
+        {
+            "question": "What happens if you get in an accident with another vehicle insured by Auto-Owners?",
+            "answers": ["Your collision deductible is waived",
+                "The driver most at fault pays the other's collision deductable",
+                "Nothing unique will happen",
+                "This depends on the specific policies both drivers have"],
+            "correct": [true,false,false,false]
+        },
+        {
+            "question": "What happens after your first at-fault crash with Auto-Owners?",
+            "answers": ["You will only have to pay half of your accident surcharge",
+                "You will no longer be insured by Auto-Owners",
+                "You will have to pay just an accident surcharge",
+                "The accident surcharge is waived"],
+            "correct": [false,false,false,true]
+        }
+    ]
+}
