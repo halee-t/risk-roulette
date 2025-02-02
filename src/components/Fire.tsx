@@ -11,30 +11,34 @@ interface QuestionProps {
 interface FireProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
-  onTimeExpire: () => void
+  onTimeExpire: () => void;
 }
 
-const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
+const Fire: React.FC<FireProps> = ({
+  onTakeDamage,
+  onGetPoints,
+  onTimeExpire,
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
 
-  const [timer,setTimer] = useState(20)
+  const [timer, setTimer] = useState(20);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimer(prevTimer => {
-        if(prevTimer > 0){
-          return prevTimer - 1
-        }else{
-          onTakeDamage(10)
-          onTimeExpire()
-          return 0
+      setTimer((prevTimer) => {
+        if (prevTimer > 0) {
+          return prevTimer - 1;
+        } else {
+          onTakeDamage(10);
+          onTimeExpire();
+          return 0;
         }
-      })
-    },1000)
-    return () => clearInterval(interval)
-  }, [timer])
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
   useEffect(() => {
     // Pick a random question from the answerData
@@ -57,10 +61,10 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) 
           plugged in, and constantly forgets to blow out his candles....yet he
           claims he'll be fine!
         </h1>
-        <h1>Answer in {timer} seconds</h1>  
+        <h1>Answer in {timer} seconds</h1>
         <img src="./house_and_boy_fire.png" className="w-72 h-auto -mt-16" />
       </div>
-      <section className="px-12 flex flex-col items-center justify-center gap-8">
+      <section className="px-12 mt-4 flex flex-col items-center justify-center gap-8">
         <div className="text-primary text-xl">{currentQuestion.question}</div>
         <div className="h-48 w-full grid grid-rows-2 grid-cols-2 gap-4">
           {currentQuestion.answers.map((answer, index) => (

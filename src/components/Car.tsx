@@ -63,7 +63,7 @@ const Car: React.FC<CarProps> = ({
         <h1>Answer in {timer} seconds</h1>
         <img src="./car-crash.png" className="w-80 h-auto -mt-40 mb-14" />
       </div>
-      <section className="px-12 flex flex-col items-center justify-center gap-8">
+      <section className="px-12 mt-4 flex flex-col items-center justify-center gap-8">
         <div className="text-primary text-xl">{currentQuestion.question}</div>
         <div className="h-48 w-full grid grid-rows-2 grid-cols-2 gap-4">
           {currentQuestion.answers.map((answer, index) => (

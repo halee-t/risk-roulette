@@ -62,7 +62,7 @@ const Identity: React.FC<IdentifyProps> = ({
         <h1>Answer in {timer} seconds</h1>
         <img src="./bubbleboy_guy_fawkes.png" className="w-64 h-auto" />
       </div>
-      <section className="px-12 flex flex-col items-center justify-center gap-8">
+      <section className="px-12 mt-4 flex flex-col items-center justify-center gap-8">
         <div className="text-primary text-xl">{currentQuestion.question}</div>
         <div className="h-48 w-full grid grid-rows-2 grid-cols-2 gap-4">
           {currentQuestion.answers.map((answer, index) => (

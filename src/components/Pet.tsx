@@ -14,7 +14,11 @@ interface PetProps {
   onTimeExpire: () => void;
 }
 
-const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) => {
+const Pet: React.FC<PetProps> = ({
+  onTakeDamage,
+  onGetPoints,
+  onTimeExpire,
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -29,22 +33,22 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) =>
     setCurrentQuestion(selectedQuestion);
   }, []);
 
-  const [timer,setTimer] = useState(20)
+  const [timer, setTimer] = useState(20);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimer(prevTimer => {
-        if(prevTimer > 0){
-          return prevTimer - 1
-        }else{
-          onTakeDamage(10)
-          onTimeExpire()
-          return 0
+      setTimer((prevTimer) => {
+        if (prevTimer > 0) {
+          return prevTimer - 1;
+        } else {
+          onTakeDamage(10);
+          onTimeExpire();
+          return 0;
         }
-      })
-    },1000)
-    return () => clearInterval(interval)
-  }, [timer])
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
   if (!currentQuestion) {
     return <div>Loading...</div>;
@@ -63,7 +67,7 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) =>
           className="w-80 h-auto object-cover overflow-hidden -mt-32"
         />
       </div>
-      <section className="px-12 flex flex-col items-center justify-center gap-8">
+      <section className="px-12 mt-12 flex flex-col items-center justify-center gap-8">
         <div className="text-primary text-xl">{currentQuestion.question}</div>
         <div className="h-48 w-full grid grid-rows-2 grid-cols-2 gap-4">
           {currentQuestion.answers.map((answer, index) => (
