@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "question": "What type of insurance would a cyber incident fall under?",
+      "answers": [
+        "Internet Activity Insurance",
+        "Technological Insurance",
+        "Umbrella Insurance",
+        "An optional add-on to Homeowners Insurance"
+      ],
+      "correct": [false, false, false, true]
+    },
+    {
+      "question": "How does Auto-Owners insure you from a cyber attack?",
+      "answers": [
+        "Auto-Owners will provide money for you to hire professional help",
+        "Auto-Owners will send their IT staff your way",
+        "Auto-Owners will reimburse you at a fixed rate per gigabyte of lost data",
+        "Auto-Owners will evaluate the damages and send you money accordingly"
+      ],
+      "correct": [true, false, false, false]
+    },
+    {
+      "question": "I'm a victim of identity theft. Can insurance do anything?",
+      "answers": [
+        "No, Cyber Protection is not covered by Auto Owners",
+        "Yes! Through the Home Cyber Protection add-on of Auto-Owner's Homeowners Insurance, you are entitled to compensation",
+        "Yes! Auto-Owners will deploy their hackers to retrieve your lost data",
+        "Yes, but not through Auto-Owners"
+      ],
+      "correct": [false, true, false, false]
+    },
+    {
+      "question": "My data has been stolen. Am I protected?",
+      "answers": [
+        "Auto-Owners can refer you to another agency but not help you directly",
+        "No, Auto-Owners can't do anything for you",
+        "You are entitled to professional help to recover lost/corrupted data through the Home Cyber Protection add-on",
+        "You are entitled to consult a professional through Auto-Owners free of charge"
+      ],
+      "correct": [false, false, true, false]
+    }
+  ]
+}

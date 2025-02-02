@@ -1,0 +1,54 @@
+{
+  "questions": [
+    {
+      "question": "What other kinds of insurance under Auto-Owners Multi-policy discount can be combined with farm insurance?",
+      "answers": [
+        "Disaster Relief",
+        "Pet Disease Insurance",
+        "Medical Insurance",
+        "Homeowners, Auto, commercial auto, life or umbrella"
+      ],
+      "correct": [false, false, false, true]
+    },
+    {
+      "question": "What does farm insurance change with?",
+      "answers": [
+        "Seasonal fluctuations",
+        "Market Trends",
+        "Moon Cycles",
+        "Salary Earnings"
+      ],
+      "correct": [true, false, false, false]
+    },
+    {
+      "question": "Besides damage to crops, what will Farm insurance protect?",
+      "answers": [
+        "Equipment damage",
+        "Winter Perils",
+        "Pollution incidents",
+        "All of the above"
+      ],
+      "correct": [false, true, false, true]
+    },
+    {
+      "question": "What protection does farm insurance exclude?",
+      "answers": [
+        "Locust damage",
+        "Fire damage",
+        "Flood damage",
+        "Chemical runoff damage"
+      ],
+      "correct": [false, false, true, false]
+    },
+    {
+      "question": "What additional option for flood coverage can you purchase with farm insurance?",
+      "answers": [
+        "Inland Flood Coverage (for those not in or near high-hazard zones)",
+        "Water and Rain damage",
+        "Hurricane/Tyhpoon Coverage",
+        "Farmers Plus"
+      ],
+      "correct": [false, false, true, false]
+    }
+  ]
+}

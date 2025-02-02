@@ -191,43 +191,52 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       <h1 className="text-3xl semibold text-primary mb-[4rem]">
         Oh no....What happened to Homeboy this time???
       </h1>
-      {/*This is the wheel itself */}
-      <canvas
-        ref={canvasRef}
-        width={400}
-        height={400}
-        style={{ borderRadius: "50%", border: "2px solid black" }}
-      />
+      <div className="flex justify-between gap-64">
+        <div className="">
+          <h1 className="text-5xl semibold">Score</h1>
+          <h1 className="text-5xl semibold">200</h1>
+        </div>
+        <div className="flex flex-col items-center">
+          {/*This is the wheel itself */}
+          <canvas
+            ref={canvasRef}
+            width={400}
+            height={400}
+            style={{ borderRadius: "50%", border: "2px solid black" }}
+          />
 
-      <button
-        className="mt-[2rem] px-2 py-2 w-32 h-16 text-2xl bg-primary text-white font-semibold rounded-lg 
+          <button
+            className="mt-[2rem] px-2 py-2 w-32 h-16 text-2xl bg-primary text-white font-semibold rounded-lg 
         shadow-md hover:bg-primaryDark focus:outline-none focus:ring-2
          focus:ring-blue-500 focus:ring-opacity-50"
-        onClick={startSpin}
-        disabled={participants.length === 0 || spinning}
-      >
-        Spin
-      </button>
-      {showPopup && popupWinner && (
-        <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
-          <button
-            onClick={closePopup}
-            className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-gray-700"
+            onClick={startSpin}
+            disabled={participants.length === 0 || spinning}
           >
-            X
+            Spin
           </button>
-          <h2>Congrats!</h2>
-          <h3>{popupWinner}</h3>
+          {showPopup && popupWinner && (
+            <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
+              <button
+                onClick={closePopup}
+                className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-gray-700"
+              >
+                X
+              </button>
 
-          {/* Conditionally Render the Components */}
-          {popupWinner === "Fire" && <Fire />}
-          {popupWinner === "Flood" && <Flood />}
-          {popupWinner === "Pet Sickness" && <Pet />}
-          {popupWinner === "Identify Theft" && <Identity />}
-          {popupWinner === "Car Accident" && <Car />}
-          {popupWinner === "Farm Fiasco" && <Farm />}
+              {/* Conditionally Render the Components */}
+              {popupWinner === "Fire" && <Fire />}
+              {popupWinner === "Flood" && <Flood />}
+              {popupWinner === "Pet Sickness" && <Pet />}
+              {popupWinner === "Identify Theft" && <Identity />}
+              {popupWinner === "Car Accident" && <Car />}
+              {popupWinner === "Farm Fiasco" && <Farm />}
+            </div>
+          )}
         </div>
-      )}
+        <div className="flex gap-4 items-center">
+          <h1>XXX</h1>
+        </div>
+      </div>
     </div>
   );
 };
