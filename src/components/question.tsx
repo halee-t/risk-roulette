@@ -10,8 +10,8 @@ interface questionProps{
 
 const Question: React.FC<questionProps> = (props) => {
     
-    let time = props.disaster === "fire" ? 5 : 10
-    const [timer, setTimer] = useState(time)
+    //let time = props.disaster === "fire" ? 5 : 10
+    const [timer, setTimer] = useState(20)
     const [timerText, setTimerText] = useState("")
     const [userCorrect, setUserCorrect] = useState(true)
 
@@ -36,6 +36,7 @@ useEffect(() => {
     let pet = (props.disaster === "pet")
     let cast = (props.disaster === "crash")
     let hacked = (props.disaster === "hack")
+    let farm = (props.disaster === "farm")
 
     return (<>
     <div className={flip ? 'font-semibold font-sans text-center underline rotate-180' : 'font-semibold font-sans text-center underline'}>
@@ -66,8 +67,8 @@ useEffect(() => {
     <div className={hacked ? '' : 'hidden'}>
         <img src = "./bubbleboy_guy_fawkes.png"/>
     </div>
-    <div>
-        {/*farm*/}
+    <div className={farm ? '' : 'hidden'}>
+        <img src="./farm_bubbleboy.png"/>
     </div>
     </>)
 }
