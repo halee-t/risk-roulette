@@ -8,7 +8,7 @@ import Question from "./components/question";
 function App() {
   return (
     <div className="App">
-      <Question question={disasters[0].title} answers={disasters[0].answers} correct={disasters[0].correctness}/>
+      <Question question={disasters[0].title} answers={disasters[0].answers} correct={disasters[0].correctness} disaster="flood"/>
     </div>
   );
 }
