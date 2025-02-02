@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,9 +13,9 @@ const Navbar: React.FC = () => {
       <div className="w-full flex flex-row items-center justify-between">
         {/* Logo */}
         <div>
-          <a href="#home">
+          <Link to="/">
             <img src="./logo.png" className="w-20 h-20 overflow-hidden" />
-          </a>
+          </Link>
         </div>
 
         <div>
@@ -23,12 +24,12 @@ const Navbar: React.FC = () => {
 
         {/* Nav Links */}
         <div className="space-x-4">
-          <a
-            href="#wheel"
+          <Link
+            to="/wheel"
             className="text-primary font-semibold hover:text-white hover:bg-primary transition duration-300 ease-in-out w-fit relative ring-2 ring-primary rounded-2xl py-2 px-4"
           >
             Dare To Play
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
