@@ -4,20 +4,33 @@ import { Link } from "react-router-dom";
 const Homeboy = () => {
   return (
     <div>
-      <section className="flex gap-24 mx-[10rem]">
+      <section className="flex gap-24 mx-[10rem] -mt-[10rem]">
         <div className="flex flex-col w-[75%]">
           <h2 className="text-3xl semibold text-primary">
             Do you have what it takes to keep homeboy covered?
           </h2>
           <p className="text-lg mt-8">
-            Homeboy has been having some very bad luck lately. Unfortunately for
-            him, he was never taught about insurance growing up and has lived
-            his life on the edge! Can you choose the correct insurance coverage
-            to help him out in his disasterous situations?
+            HOMEBOY is a good-natured guy who loves life, but has a knack for
+            getting himself into disastrous situations. Whether it's --INSERT
+            SITUATION--, --INSERT SITUATION--, or --INSERT SITUATION--, Homeboy
+            has one thing in common: bad luck follows him around like a shadow.
+          </p>
+          <p className="text-lg mt-8">
+            Insurance? That's a word Homeboys heard about but never paid much
+            attention to. He's pretty sure it's something adults talk about, but
+            every time someone mentions it, Homeboy just nods and moves on. As
+            far as he's concerned, his life is all about living in the moment
+            and dealing with the messes later. However, his friends keep hinting
+            that he might be one accident away from a serious financial
+            disaster, and maybe it's time he took insurance seriously.
+          </p>
+          <p className="text-lg mt-8">
+            Can you choose the correct insurance coverage to help him out in his
+            disasterous situations?
           </p>
         </div>
-        <div>
-          <img />
+        <div className="flex flex-col justify-center items-center gap-8">
+          <img src="./HomeBoy.png" />
           <div className="space-x-4">
             <Link
               to="/wheel"
@@ -28,6 +41,7 @@ const Homeboy = () => {
           </div>
         </div>
       </section>
+      <section className="h-64"></section>
     </div>
   );
 };
