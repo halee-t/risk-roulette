@@ -280,22 +280,22 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
           {/* Conditionally Render the Components */}
           {popupWinner === "Fire" && (
-            <Fire onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Fire onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
           {popupWinner === "Flood" && (
-            <Flood onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Flood onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
           {popupWinner === "Pet Sickness" && (
-            <Pet onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Pet onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
           {popupWinner === "Identify Theft" && (
-            <Identity onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Identity onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
           {popupWinner === "Car Accident" && (
-            <Car onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Car onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
           {popupWinner === "Farm Fiasco" && (
-            <Farm onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+            <Farm onTakeDamage={handleTakeDamage} onGetPoints={addPoints} onTimeExpire = {closePopup}/>
           )}
         </div>
       )}
