@@ -1,0 +1,30 @@
+{
+    "questions": [
+        {
+            "question": "What percent of flood insurance claims occur in 'lower risk' zones for flooding?",
+            "answers": ["8%", "10%", "15%", "25%"],
+            "correct": [false, false, false, true]
+        },
+        {
+            "question": "What kind of damage does homeowners and farm insurance exclude?",
+            "answers": ["Flood", "Hurricane", "Fire", "Home Invasion"],
+            "correct": [true, false, false, false]
+        },
+        {
+            "question": "Besides the insured building, what will flood insurance protect?",
+            "answers": ["Electrical and Plumbing systems",
+                        "Electrical and Plumbing systems, central air-con and HVAC and built in appliances",
+                        "Central air-con and HVAC", 
+                        "Electrical and Plumbing systems, central air-con and HVAC"],
+            "correct": [false, true, false, false]
+        },
+        {
+            "question": "What's the average property damage cost of flooding?",
+            "answers": ["$8,000, and from less than a foot and a half of water",
+                        "$25,000, and from less than 5ft of water",
+                        "$39,000, and from less than 1ft of water",
+                        "$15,000 and from less than 3 ft of water"],
+            "correct": [false, false, true, false]
+        }
+    ]
+}
