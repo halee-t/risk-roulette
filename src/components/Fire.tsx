@@ -11,22 +11,15 @@ interface QuestionProps {
 interface FireProps {
   onTakeDamage: (damage: number) => void;
   onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void
 }
 
-const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints }) => {
+const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
 
   const [timer,setTimer] = useState(20)
-
-  var timerDamage = 0
-  function damage(check:number){
-    if(check == 0){
-      onTakeDamage(10)
-      timerDamage++
-    }
-  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,7 +27,8 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints }) => {
         if(prevTimer > 0){
           return prevTimer - 1
         }else{
-          damage(timerDamage)
+          onTakeDamage(10)
+          onTimeExpire()
           return 0
         }
       })

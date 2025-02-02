@@ -10,10 +10,11 @@ interface QuestionProps {
 
 interface PetProps {
   onTakeDamage: (damage: number) => void;
-  onGetPoints: (earn: number) => void
+  onGetPoints: (earn: number) => void;
+  onTimeExpire: () => void;
 }
 
-const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
+const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints, onTimeExpire} ) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -30,21 +31,14 @@ const Pet: React.FC<PetProps> = ( {onTakeDamage, onGetPoints} ) => {
 
   const [timer,setTimer] = useState(20)
 
-  var timerDamage = 0
-  function damage(check:number){
-    if(check == 0){
-      onTakeDamage(10)
-      timerDamage++
-    }
-  }
-
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer(prevTimer => {
         if(prevTimer > 0){
           return prevTimer - 1
         }else{
-          damage(timerDamage)
+          onTakeDamage(10)
+          onTimeExpire()
           return 0
         }
       })
