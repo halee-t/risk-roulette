@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
 const BackgroundMusic: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,7 +29,6 @@ const BackgroundMusic: React.FC = () => {
   return (
     <div>
       <audio ref={audioRef} src="./HomiesHomily.mp3" />
-    
     </div>
   );
 };
