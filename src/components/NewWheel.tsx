@@ -216,8 +216,6 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           >
             X
           </button>
-          <h2>Congrats!</h2>
-          <h3>{popupWinner}</h3>
 
           {/* Conditionally Render the Components */}
           {popupWinner === "Fire" && <Fire />}
