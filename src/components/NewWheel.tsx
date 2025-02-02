@@ -15,6 +15,7 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
+import BackgroundMusic from "./BackgroundMusic";
 
 interface Props {
   participants: string[];
