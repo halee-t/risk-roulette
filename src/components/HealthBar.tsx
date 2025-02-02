@@ -22,12 +22,6 @@ const HealthBar: React.FC<HealthBarProps> = ({ currentHealth, maxHealth, onTakeD
       <div className="text-center mt-1">
         {currentHealth} / {maxHealth}
       </div>
-      <button
-        onClick={() => onTakeDamage(10)} // Call the onTakeDamage function with 10 damage
-        className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors"
-      >
-        Take 10 Damage
-      </button>
     </div>
   );
 };

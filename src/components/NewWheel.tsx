@@ -7,6 +7,7 @@ import Car from "./Car";
 import Pet from "./Pet";
 import Farm from "./Farm";
 import HealthBar from "./HealthBar";
+import Score from "./score";
 
 interface Props {
   participants: string[];
@@ -193,15 +194,25 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     setCurrentHealth((prevHealth) => Math.max(prevHealth - damage, 0)); // Ensure health doesn't go below 0
   };
 
+  const [currentPoints, setCurrentPoints] = useState(100);
+
+  const addPoints = (earn: number) => {
+    setCurrentPoints((prevPoints) => prevPoints + earn);
+  };
+
   return (
     <div className="flex flex-col justify-center items-center mt-[5rem]">
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Health Bar Example</h1>
+        <h1 className="text-2xl font-bold mb-4">Homie Health</h1>
         <HealthBar
           currentHealth={currentHealth}
           maxHealth={maxHealth}
           onTakeDamage={handleTakeDamage}
         />
+      </div>
+
+      <div>
+        <Score points={currentPoints} onGetPoints={addPoints} />
       </div>
 
       <h1 className="text-3xl semibold text-primary mb-[4rem]">
@@ -234,19 +245,32 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           </button>
 
           {/* Conditionally Render the Components */}
-          {popupWinner === "Fire" && <Fire onTakeDamage={handleTakeDamage} />}
-          {popupWinner === "Flood" && <Flood onTakeDamage={handleTakeDamage} />}
+          {popupWinner === "Fire" && 
+            <Fire onTakeDamage={handleTakeDamage} 
+            onGetPoints={addPoints}
+          />}
+          {popupWinner === "Flood" && 
+            <Flood onTakeDamage={handleTakeDamage} 
+            onGetPoints={addPoints}
+          />}
           {popupWinner === "Pet Sickness" && (
-            <Pet onTakeDamage={handleTakeDamage} />
+            <Pet onTakeDamage={handleTakeDamage}
+            onGetPoints={addPoints} />
           )}
           {popupWinner === "Identify Theft" && (
-            <Identity onTakeDamage={handleTakeDamage} />
+            <Identity onTakeDamage={handleTakeDamage}
+            onGetPoints={addPoints}
+          />
           )}
           {popupWinner === "Car Accident" && (
-            <Car onTakeDamage={handleTakeDamage} />
+            <Car onTakeDamage={handleTakeDamage}
+            onGetPoints={addPoints}
+          />
           )}
           {popupWinner === "Farm Fiasco" && (
-            <Farm onTakeDamage={handleTakeDamage} />
+            <Farm onTakeDamage={handleTakeDamage} 
+            onGetPoints={addPoints}
+          />
           )}
         </div>
       )}

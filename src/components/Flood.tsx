@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface FloodProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void;
 }
 
-const Flood: React.FC<FloodProps> = ({ onTakeDamage }) => {
+const Flood: React.FC<FloodProps> = ({ onTakeDamage, onGetPoints }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -46,6 +47,7 @@ const Flood: React.FC<FloodProps> = ({ onTakeDamage }) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

@@ -10,9 +10,10 @@ interface QuestionProps {
 
 interface FireProps {
   onTakeDamage: (damage: number) => void;
+  onGetPoints: (earn: number) => void;
 }
 
-const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
+const Fire: React.FC<FireProps> = ({ onTakeDamage, onGetPoints }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -48,6 +49,7 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
               <Answer
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
+                onGetPoints={onGetPoints}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>
