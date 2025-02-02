@@ -7,7 +7,12 @@ interface QuestionProps {
   answers: string[];
   correct: boolean[];
 }
-const Car: React.FC = () => {
+
+interface CarProps {
+  onTakeDamage: (damage: number) => void;
+}
+
+const Car: React.FC<CarProps> = ({ onTakeDamage }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -41,6 +46,7 @@ const Car: React.FC = () => {
             <div className="flex justify-center" key={index}>
               <Answer
                 answerStr={answer}
+                onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

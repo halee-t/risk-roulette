@@ -8,7 +8,11 @@ interface QuestionProps {
   correct: boolean[];
 }
 
-const Fire: React.FC = () => {
+interface FireProps {
+  onTakeDamage: (damage: number) => void;
+}
+
+const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -43,6 +47,7 @@ const Fire: React.FC = () => {
             <div className="flex justify-center" key={index}>
               <Answer
                 answerStr={answer}
+                onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

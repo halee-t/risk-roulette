@@ -5,6 +5,7 @@ interface questionProps{
     question:string;
     answers:string[];
     correct:boolean[];
+    onTakeDamage: (damage: number) => void;
 }
 
 const Question: React.FC<questionProps> = (props) => {
@@ -15,7 +16,11 @@ const Question: React.FC<questionProps> = (props) => {
     <div className="h-64 grid grid-rows-{2} grid-cols-2 gap-4 flex align-bottom">
         {props.answers.map((res, index) => (
             <div className="flex justify-center">
-                <Answer answerStr = {res} correctness={props.correct[index]}></Answer>
+                <Answer 
+                    answerStr = {res} 
+                    onTakeDamage={props.onTakeDamage}
+                    correctness={props.correct[index]}
+                />
             </div>
         ))}
     </div>

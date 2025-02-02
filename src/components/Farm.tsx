@@ -7,7 +7,12 @@ interface QuestionProps {
   answers: string[];
   correct: boolean[];
 }
-const Farm: React.FC = () => {
+
+interface FarmProps {
+  onTakeDamage: (damage: number) => void;
+}
+
+const Farm: React.FC<FarmProps> = ({ onTakeDamage }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -45,6 +50,7 @@ const Farm: React.FC = () => {
             <div className="flex justify-center" key={index}>
               <Answer
                 answerStr={answer}
+                onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

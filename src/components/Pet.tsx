@@ -8,7 +8,11 @@ interface QuestionProps {
   correct: boolean[];
 }
 
-const Pet = () => {
+interface PetProps {
+  onTakeDamage: (damage: number) => void;
+}
+
+const Pet: React.FC<PetProps> = ( {onTakeDamage} ) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -46,6 +50,7 @@ const Pet = () => {
             <div className="flex justify-center" key={index}>
               <Answer
                 answerStr={answer}
+                onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>

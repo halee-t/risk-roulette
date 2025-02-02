@@ -8,7 +8,11 @@ interface QuestionProps {
   correct: boolean[];
 }
 
-const Flood: React.FC = () => {
+interface FloodProps {
+  onTakeDamage: (damage: number) => void;
+}
+
+const Flood: React.FC<FloodProps> = ({ onTakeDamage }) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
@@ -41,6 +45,7 @@ const Flood: React.FC = () => {
             <div className="flex justify-center" key={index}>
               <Answer
                 answerStr={answer}
+                onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
               ></Answer>
             </div>
