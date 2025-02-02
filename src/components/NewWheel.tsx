@@ -201,9 +201,36 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mt-[5rem]">
-      <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Homie Health</h1>
+    <div className="flex justify-between items-center mt-[5rem] mx-[8rem]">
+      <div>
+        <Score points={currentPoints} onGetPoints={addPoints} />
+      </div>
+
+      <div className="flex flex-col justify-center items-center">
+        <h1 className="text-3xl semibold text-primary mb-[4rem]">
+          Oh no....What happened to Franklin this time???
+        </h1>
+        {/*This is the wheel itself */}
+        <canvas
+          ref={canvasRef}
+          width={400}
+          height={400}
+          style={{ borderRadius: "50%", border: "2px solid black" }}
+        />
+
+        <button
+          className="mt-[2rem] px-2 py-2 w-32 h-16 text-2xl bg-primary text-white font-semibold rounded-lg 
+        shadow-md hover:bg-primaryDark focus:outline-none focus:ring-2
+         focus:ring-blue-500 focus:ring-opacity-50"
+          onClick={startSpin}
+          disabled={participants.length === 0 || spinning}
+        >
+          Spin
+        </button>
+      </div>
+
+      <div className="">
+        <img src="./HomeBoy.png" className="w-48 h-auto mb-4" />
         <HealthBar
           currentHealth={currentHealth}
           maxHealth={maxHealth}
@@ -211,32 +238,8 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
         />
       </div>
 
-      <div>
-        <Score points={currentPoints} onGetPoints={addPoints} />
-      </div>
-
-      <h1 className="text-3xl semibold text-primary mb-[4rem]">
-        Oh no....What happened to Franklin this time???
-      </h1>
-      {/*This is the wheel itself */}
-      <canvas
-        ref={canvasRef}
-        width={400}
-        height={400}
-        style={{ borderRadius: "50%", border: "2px solid black" }}
-      />
-
-      <button
-        className="mt-[2rem] px-2 py-2 w-32 h-16 text-2xl bg-primary text-white font-semibold rounded-lg 
-        shadow-md hover:bg-primaryDark focus:outline-none focus:ring-2
-         focus:ring-blue-500 focus:ring-opacity-50"
-        onClick={startSpin}
-        disabled={participants.length === 0 || spinning}
-      >
-        Spin
-      </button>
       {showPopup && popupWinner && (
-        <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
+        <div className="w-[85%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
           <button
             onClick={closePopup}
             className="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-gray-700"
@@ -245,32 +248,23 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           </button>
 
           {/* Conditionally Render the Components */}
-          {popupWinner === "Fire" && 
-            <Fire onTakeDamage={handleTakeDamage} 
-            onGetPoints={addPoints}
-          />}
-          {popupWinner === "Flood" && 
-            <Flood onTakeDamage={handleTakeDamage} 
-            onGetPoints={addPoints}
-          />}
+          {popupWinner === "Fire" && (
+            <Fire onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+          )}
+          {popupWinner === "Flood" && (
+            <Flood onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
+          )}
           {popupWinner === "Pet Sickness" && (
-            <Pet onTakeDamage={handleTakeDamage}
-            onGetPoints={addPoints} />
+            <Pet onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
           )}
           {popupWinner === "Identify Theft" && (
-            <Identity onTakeDamage={handleTakeDamage}
-            onGetPoints={addPoints}
-          />
+            <Identity onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
           )}
           {popupWinner === "Car Accident" && (
-            <Car onTakeDamage={handleTakeDamage}
-            onGetPoints={addPoints}
-          />
+            <Car onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
           )}
           {popupWinner === "Farm Fiasco" && (
-            <Farm onTakeDamage={handleTakeDamage} 
-            onGetPoints={addPoints}
-          />
+            <Farm onTakeDamage={handleTakeDamage} onGetPoints={addPoints} />
           )}
         </div>
       )}
