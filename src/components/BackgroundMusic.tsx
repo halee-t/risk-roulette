@@ -27,7 +27,7 @@ const BackgroundMusic: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="hidden">
       <audio ref={audioRef} src="./HomiesHomily.mp3" />
     </div>
   );

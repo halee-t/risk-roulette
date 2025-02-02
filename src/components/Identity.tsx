@@ -14,27 +14,31 @@ interface IdentifyProps {
   onTimeExpire: () => void;
 }
 
-const Identity: React.FC<IdentifyProps> = ({ onTakeDamage, onGetPoints, onTimeExpire }) => {
+const Identity: React.FC<IdentifyProps> = ({
+  onTakeDamage,
+  onGetPoints,
+  onTimeExpire,
+}) => {
   const [currentQuestion, setCurrentQuestion] = useState<QuestionProps | null>(
     null
   );
 
-  const [timer,setTimer] = useState(20)
+  const [timer, setTimer] = useState(20);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimer(prevTimer => {
-        if(prevTimer > 0){
-          return prevTimer - 1
-        }else{
-          onTakeDamage(10)
-          onTimeExpire()
-          return 0
+      setTimer((prevTimer) => {
+        if (prevTimer > 0) {
+          return prevTimer - 1;
+        } else {
+          onTakeDamage(10);
+          onTimeExpire();
+          return 0;
         }
-      })
-    },1000)
-    return () => clearInterval(interval)
-  }, [timer])
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timer]);
 
   useEffect(() => {
     // Pick a random question from the answerData
