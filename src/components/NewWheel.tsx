@@ -12,15 +12,12 @@ interface Props {
 }
 
 const colors = [
-  "#2985CC", // Darker sky blue
-  "#293FCC", // Darker bright blue
-  "#4629CC", // Darker purple
-  "#9929CC", // Darker violet
-  "#CC5929", // Darker coral
-  "#29CC91", // Darker pale turquoise
-  "#298ECC", // Darker deep sky blue
-  "#4A29CC", // Darker royal blue
-  "#8429CC", // Darker medium purple
+  "#FF735B", // fire
+  "#8FC1FA", // flood
+  "#FADF8D", // car
+  "#DCA5FF", // pet
+  "#FFAD76", // identify
+  "#96C699", // farm
 ];
 
 export const NewWheel: React.FC<Props> = ({ participants }) => {
@@ -91,7 +88,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillStyle = "white";
-      ctx.font = "16px Arial";
+      ctx.font = "16px Arial semibold";
       ctx.shadowColor = "rgba(0, 0, 0, 0.7)";
       ctx.shadowOffsetX = 1;
       ctx.shadowOffsetY = 1;
@@ -114,7 +111,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     ctx.lineTo(0, indicatorWidth / 2);
     ctx.lineTo(-indicatorLength, indicatorWidth / 2);
     ctx.closePath();
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "black";
     ctx.fill();
     ctx.restore();
   };
