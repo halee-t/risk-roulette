@@ -9,9 +9,12 @@ import { NewWheel } from "./components/NewWheel";
 
 function App() {
   const [names, setName] = useState<string[]>([
-    "woop",
-    "wooooooooop",
-    "homeboy",
+    "Fire",
+    "Flood",
+    "Car Accident",
+    "Pet Sickness",
+    "Identify Theft",
+    "Farm Fiasco",
   ]);
   return (
     <Router>

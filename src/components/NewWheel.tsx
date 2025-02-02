@@ -1,45 +1,38 @@
 import React, { useRef, useState, useEffect } from "react";
 import confetti from "canvas-confetti";
+import Identity from "./Identity";
+import Fire from "./Fire";
+import Flood from "./Flood";
+import Car from "./Car";
+import Pet from "./Pet";
+import Farm from "./Farm";
 
 interface Props {
   participants: string[];
 }
 
 const colors = [
-  "#CC4629", // Darker vibrant orange
-  "#CC9A29", // Darker bright yellow
-  "#B2CC29", // Darker light green-yellow
-  "#5ECC29", // Darker bright green
-  "#29CC46", // Darker bright teal-green
-  "#29CC99", // Darker turquoise
   "#2985CC", // Darker sky blue
   "#293FCC", // Darker bright blue
   "#4629CC", // Darker purple
   "#9929CC", // Darker violet
-  "#CC2981", // Darker hot pink
-  "#CC2929", // Darker red
   "#CC5929", // Darker coral
-  "#CC9529", // Darker gold
-  "#B2CC29", // Darker lime green
-  "#66CC29", // Darker olive green
-  "#29CC5F", // Darker mint green
   "#29CC91", // Darker pale turquoise
   "#298ECC", // Darker deep sky blue
   "#4A29CC", // Darker royal blue
   "#8429CC", // Darker medium purple
-  "#CC298F", // Darker fuchsia
-  "#CC294F", // Darker hot pink
 ];
 
 export const NewWheel: React.FC<Props> = ({ participants }) => {
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
-  // don tthink I need this
-  const [spinDirection, setSpinDirection] = useState<
-    "clockwise" | "counterclockwise"
-  >("clockwise");
+
   // popup
   const [showPopup, setShowPopup] = useState(false);
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   // displays winner name
   const [popupWinner, setPopupWinner] = useState<string | null>(null);
@@ -111,7 +104,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     ctx.translate(-radius, -radius);
 
     // Draw the static indicator
-    const indicatorLength = 20;
+    const indicatorLength = 50;
     const indicatorWidth = 10;
     ctx.save();
     ctx.translate(canvas.width, canvas.height / 2);
@@ -136,10 +129,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     const totalRotation = numFullRotations * 360;
 
     // this isn't really needed. Controls clockwise or counter clockwise
-    const finalRotation =
-      (rotation +
-        (spinDirection === "clockwise" ? -totalRotation : totalRotation)) %
-      360;
+    const finalRotation = (rotation - totalRotation) % 360;
 
     // spin time
     const spinDuration = 6000;
@@ -157,11 +147,8 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       const elapsed = time - startTime;
       const t = Math.min(elapsed / spinDuration, 1);
       const easeT = easing(t);
-      // don't really need
-      const currentRotation =
-        rotation +
-        (spinDirection === "clockwise" ? -totalRotation : totalRotation) *
-          easeT;
+      // don't really need - fixed for set rotation
+      const currentRotation = rotation - totalRotation * easeT;
 
       setRotation(currentRotation);
 
@@ -185,17 +172,9 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     setShowPopup(true);
   };
 
-  const changeSpinDirection = () => {
-    setSpinDirection(
-      spinDirection === "clockwise" ? "counterclockwise" : "clockwise"
-    );
-  };
-
   useEffect(() => {
     if (showPopup) {
       startConfetti();
-      const timer = setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
-      return () => clearTimeout(timer);
     }
   }, [showPopup]);
 
@@ -208,7 +187,10 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center mt-[5rem]">
+      <h1 className="text-3xl semibold text-primary mb-[4rem]">
+        Oh no....What happened to Homeboy this time???
+      </h1>
       {/*This is the wheel itself */}
       <canvas
         ref={canvasRef}
@@ -218,21 +200,34 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       />
 
       <button
-        className="px-6 py-2 bg-white text-black font-semibold rounded-lg 
-        shadow-md hover:bg-yellow-100 focus:outline-none focus:ring-2
-         focus:ring-blue-500 focus:ring-opacity-50 ml-20"
-        onClick={changeSpinDirection}
-        disabled={participants.length === 0 || spinning}
-      >
-        {spinDirection}
-      </button>
-      <button
-        className="flex justify-center gap-4 mt-4"
+        className="mt-[2rem] px-2 py-2 w-32 h-16 text-2xl bg-primary text-white font-semibold rounded-lg 
+        shadow-md hover:bg-primaryDark focus:outline-none focus:ring-2
+         focus:ring-blue-500 focus:ring-opacity-50"
         onClick={startSpin}
         disabled={participants.length === 0 || spinning}
       >
         Spin
       </button>
+      {showPopup && popupWinner && (
+        <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
+          <button
+            onClick={closePopup}
+            className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-gray-700"
+          >
+            X
+          </button>
+          <h2>Congrats!</h2>
+          <h3>{popupWinner}</h3>
+
+          {/* Conditionally Render the Components */}
+          {popupWinner === "Fire" && <Fire />}
+          {popupWinner === "Flood" && <Flood />}
+          {popupWinner === "Pet Sickness" && <Pet />}
+          {popupWinner === "Identify Theft" && <Identity />}
+          {popupWinner === "Car Accident" && <Car />}
+          {popupWinner === "Farm Fiasco" && <Farm />}
+        </div>
+      )}
     </div>
   );
 };
