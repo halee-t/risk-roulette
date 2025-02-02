@@ -21,7 +21,7 @@ const Answer: React.FC<answerProps> = (props) => {
       ]);
 
       if (!props.correctness) {
-        props.onTakeDamage(10);
+        props.onTakeDamage(20);
       } else if (props.correctness) {
         props.onGetPoints(100);
       }

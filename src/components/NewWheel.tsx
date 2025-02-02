@@ -242,7 +242,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   const addPoints = (earn: number) => {
     setCurrentPoints((prevPoints) => {
       const newPoints = prevPoints + earn; // Ensure health doesn't go below 0
-      if (newPoints >= 500) {
+      if (newPoints >= 300) {
         setIsWon(true); // Set game over when health reaches 0
       }
       return newPoints;
