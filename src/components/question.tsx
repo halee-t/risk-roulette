@@ -1,4 +1,6 @@
 import Answer from "./answer"
+import answerData from "../data/questions.json";
+
 interface questionProps{
     question:string;
     answers:string[];
@@ -10,10 +12,10 @@ const Question: React.FC<questionProps> = (props) => {
     <div className="font-semibold font-sans text-center underline">
         {props.question}
     </div>
-    <div className="flex flex-col w-1/2 mt-1 gap-1">
+    <div className="h-64 grid grid-rows-{2} grid-cols-2 gap-4 flex align-bottom">
         {props.answers.map((res, index) => (
-            <div>
-            <Answer answerStr = {res} correctness={props.correct[index]}></Answer>
+            <div className="flex justify-center">
+                <Answer answerStr = {res} correctness={props.correct[index]}></Answer>
             </div>
         ))}
     </div>
