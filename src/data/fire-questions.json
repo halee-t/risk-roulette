@@ -1,0 +1,49 @@
+     {
+        "questions": [
+            {
+                "question": "What type of insurance would a fire disaster fall under?",
+                "answers": ["Fire", "Disaster Relief", "Homeowners", "Medical"],
+                "correct": [false, false, true, false]
+            },
+            {
+                "question": "My home is burned down and now I need to stay in a hotel. Am I covered?",
+                "answers": ["Yes, your homeowners insurance can cover additional living expenses such as the cost of a hotel stay and food",
+                            "No, your insurance will cover damages but not hotel costs",
+                            "Yes, but only if you buy an add-on to your plan",
+                            "No, but your homeowners insurance will help cover food costs"],
+                "correct": [true, false, false, false]
+            },
+            {
+                "question": "How can you save money on homeowners insurance?",
+                "answers": ["By choosing not to insure applicances",
+                            "Installing smoke detectors, fire extinguishers and deadbolt locks",
+                            "Eligibility depends on the material of your house (brick vs wood)",
+                            "You don't need home insurance"],
+                "correct": [false, true, false, false]
+            },
+            {
+                "question": "What other kinds of insurance fall under Auto-Owners Insurances' Multi-Policy Discount?",
+                "answers": ["Medical insurance",
+                            "Pet insurance",
+                            "Disaster Relief insurance",
+                            "Auto insurance and life insurance"],
+                "correct": [false, false, false, true]
+            },
+            {
+                "question": "What protection does homeowners insurance exclude",
+                "answers": ["Medical Payments to those injured at your residence",
+                            "Cyber Attacks",
+                            "Flood damage",
+                            "Peripheral structures (Garage, Barn)"],
+                "correct": [false, true, false, false]
+            },
+            {
+                "question": "What additional option for flood coverage can you purchase with homeowners insurance?",
+                "answers": ["Inland Flood Coverage (for those not in or near high-hazard zones)",
+                            "Water and Rain damage",
+                            "Hurricane/Tyhpoon Coverage",
+                            "Homeowners Plus"],
+                "correct": [true, false, false, false]
+            }
+        ]
+    }
