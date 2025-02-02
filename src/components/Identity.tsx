@@ -27,14 +27,16 @@ const Identity: React.FC = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="font-semibold font-sans text-center flex flex-col items-center">
-      <div className="">
-        <h1>insert scenario still</h1>
-        <h1>insert pic still</h1>
+    <div className="font-semibold font-sans text-center flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center mb-[3rem]">
+        <h1 className="text-primary text-lg">
+          "Identify Theft Isn't a Joke Jim!" - Dwight
+        </h1>
+        <img src="./bubbleboy_guy_fawkes.png" className="w-64 h-auto" />
       </div>
-      <section className="px-12 flex flex-col items-center justify-center ring ring-2 ring-red gap-8">
-        <div className="underline">{currentQuestion.question}</div>
-        <div className="h-48 w-full grid grid-rows-2 grid-cols-2 ">
+      <section className="px-12 flex flex-col items-center justify-center gap-8">
+        <div className="text-primary text-xl">{currentQuestion.question}</div>
+        <div className="h-48 w-full grid grid-rows-2 grid-cols-2 gap-4">
           {currentQuestion.answers.map((answer, index) => (
             <div className="flex justify-center" key={index}>
               <Answer
