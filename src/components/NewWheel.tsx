@@ -6,6 +6,7 @@ import Flood from "./Flood";
 import Car from "./Car";
 import Pet from "./Pet";
 import Farm from "./Farm";
+import HealthBar from "./HealthBar";
 
 interface Props {
   participants: string[];
@@ -186,8 +187,26 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     });
   };
 
+  //health bar stuff
+  const [currentHealth, setCurrentHealth] = useState(100); // Initial health
+  const maxHealth = 100; // Maximum health
+
+  // Function to handle taking damage
+  const handleTakeDamage = (damage: number) => {
+    setCurrentHealth((prevHealth) => Math.max(prevHealth - damage, 0)); // Ensure health doesn't go below 0
+  };
+
   return (
     <div className="flex flex-col justify-center items-center mt-[5rem]">
+      <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Health Bar Example</h1>
+        <HealthBar
+          currentHealth={currentHealth}
+          maxHealth={maxHealth}
+          onTakeDamage={handleTakeDamage}
+        />
+      </div>
+
       <h1 className="text-3xl semibold text-primary mb-[4rem]">
         Oh no....What happened to Homeboy this time???
       </h1>
@@ -220,12 +239,12 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
           <h3>{popupWinner}</h3>
 
           {/* Conditionally Render the Components */}
-          {popupWinner === "Fire" && <Fire />}
-          {popupWinner === "Flood" && <Flood />}
-          {popupWinner === "Pet Sickness" && <Pet />}
-          {popupWinner === "Identify Theft" && <Identity />}
-          {popupWinner === "Car Accident" && <Car />}
-          {popupWinner === "Farm Fiasco" && <Farm />}
+          {popupWinner === "Fire" && <Fire onTakeDamage={handleTakeDamage}/>}
+          {popupWinner === "Flood" && <Flood onTakeDamage={handleTakeDamage}/>}
+          {popupWinner === "Pet Sickness" && <Pet onTakeDamage={handleTakeDamage}/>}
+          {popupWinner === "Identify Theft" && <Identity onTakeDamage={handleTakeDamage}/>}
+          {popupWinner === "Car Accident" && <Car onTakeDamage={handleTakeDamage}/>}
+          {popupWinner === "Farm Fiasco" && <Farm onTakeDamage={handleTakeDamage} />}
         </div>
       )}
     </div>

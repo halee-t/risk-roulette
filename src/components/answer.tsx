@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 interface answerProps {
   answerStr: string;
+  onTakeDamage: (damage: number) => void;
   correctness: boolean;
 }
 
@@ -16,7 +17,13 @@ const Answer: React.FC<answerProps> = (props) => {
         ...(props.correctness
           ? ["bg-green-500", "hover:bg-green-600"]
           : ["bg-red-500", "hover:bg-red-600"]),
-      ]); // Apply the correct or incorrect colors
+      ]); 
+
+      //why aren't you fucking working
+      if (!props.correctness){
+        props.onTakeDamage(10);
+      }
+      // Apply the correct or incorrect colors
     }
   };
 
