@@ -212,12 +212,10 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
         <div className="w-[80%] h-[75%] fixed z-50 top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%] bg-white text-primary px-[1rem] py-[2rem] ring ring-3 ring-primary rounded-lg text-center">
           <button
             onClick={closePopup}
-            className="absolute top-2 right-2 text-xl font-bold text-gray-500 hover:text-gray-700"
+            className="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-gray-700"
           >
             X
           </button>
-          <h2>Congrats!</h2>
-          <h3>{popupWinner}</h3>
 
           {/* Conditionally Render the Components */}
           {popupWinner === "Fire" && <Fire />}
