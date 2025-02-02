@@ -244,7 +244,7 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-3xl semibold text-primary mb-[4rem]">
-          Oh no....What happened to Franklin this time???
+          Oh no....what happened to Franklin this time???
         </h1>
         {/*This is the wheel itself */}
         <canvas
