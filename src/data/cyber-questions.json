@@ -12,7 +12,7 @@
             "question": "How does Auto-Owners insure you from a cyber attack?",
             "answers": ["Auto-Owners will provide money for you to hire professional help", 
                         "Auto-Owners will send their IT staff your way", 
-                        "Auto-Owners will reimburse you at a fixed rate per gigabye of lost data", 
+                        "Auto-Owners will reimburse you at a fixed rate per gigabyte of lost data", 
                         "Auto-Owners will evaluate the damages and send you money accordingly"],
             "correct": [true, false, false, false]
         },
