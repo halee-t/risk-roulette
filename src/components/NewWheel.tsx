@@ -8,7 +8,13 @@ import Pet from "./Pet";
 import Farm from "./Farm";
 import HealthBar from "./HealthBar";
 import Score from "./score";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 
 interface Props {
   participants: string[];
@@ -208,13 +214,13 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
 
   useEffect(() => {
     if (isGameOver) {
-      navigate('/gameover');
+      navigate("/gameover");
     }
   }, [isGameOver]);
 
   useEffect(() => {
     if (isWon) {
-      navigate('/winner');
+      navigate("/winner");
     }
   }, [isWon]);
 
@@ -229,7 +235,6 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
       return newPoints;
     });
   };
-
 
   return (
     <div className="flex justify-between items-center mt-[5rem] mx-[8rem]">

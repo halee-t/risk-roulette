@@ -32,7 +32,7 @@ const Answer: React.FC<answerProps> = (props) => {
   return (
     <div>
       <button
-        className="w-[28rem] h-20 bg-white text-black font-semibold rounded-lg ring ring-2 ring-primary
+        className="w-[28rem] h-20 bg-background text-black font-semibold rounded-lg ring ring-2 ring-primary
         shadow-md hover:bg-primary hover:text-white focus:outline-none focus:ring-2
          focus:ring-primaryDark focus:ring-opacity-50 px-2"
         onClick={checkAnswer}
