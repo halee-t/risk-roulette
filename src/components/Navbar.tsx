@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav id="home" className="p-4 h-[5rem] overflow-hidden mx-4">
-      <div className="w-full flex flex-row items-center justify-between gap-8">
+      <div className="w-full flex flex-row items-center justify-between">
         {/* Logo */}
         <div>
           <Link to="/">
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
             to="/wheel"
             className="text-primary font-semibold hover:text-white hover:bg-primary transition duration-300 ease-in-out w-fit relative ring-2 ring-primary rounded-2xl py-2 px-4"
           >
-            Dare To Play
+            Dare To Play?
           </Link>
         </div>
       </div>

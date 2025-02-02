@@ -7,18 +7,19 @@ const Homeboy = () => {
       <section className="flex gap-24 mx-[10rem] -mt-[10rem]">
         <div className="flex flex-col w-[75%]">
           <h2 className="text-3xl semibold text-primary">
-            Do you have what it takes to keep homeboy covered?
+            Do you have what it takes to keep Franklin covered?
           </h2>
           <p className="text-lg mt-8">
-            HOMEBOY is a good-natured guy who loves life, but has a knack for
-            getting himself into disastrous situations. Whether it's --INSERT
-            SITUATION--, --INSERT SITUATION--, or --INSERT SITUATION--, Homeboy
-            has one thing in common: bad luck follows him around like a shadow.
+            Franklin is a good-natured guy who loves life, but has a knack for
+            getting himself into disastrous situations. Whether it's being in
+            the wrong place at the wrong time, his reckless decisions, or
+            forgetting to clean out the dyer lint trap, Franky has one thing in
+            common: bad luck follows him around like a shadow.
           </p>
           <p className="text-lg mt-8">
-            Insurance? That's a word Homeboys heard about but never paid much
+            Insurance? That's a word Franklins heard about but never paid much
             attention to. He's pretty sure it's something adults talk about, but
-            every time someone mentions it, Homeboy just nods and moves on. As
+            every time someone mentions it, Franky just nods and moves on. As
             far as he's concerned, his life is all about living in the moment
             and dealing with the messes later. However, his friends keep hinting
             that he might be one accident away from a serious financial
@@ -31,12 +32,12 @@ const Homeboy = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-8">
           <img src="./HomeBoy.png" />
-          <div className="space-x-4">
+          <div className="">
             <Link
               to="/wheel"
-              className="text-primary font-semibold hover:text-white hover:bg-primary transition duration-300 ease-in-out w-fit relative ring-2 ring-primary rounded-2xl py-2 px-4"
+              className="text-2xl font-semibold hover:text-white hover:bg-primary transition duration-300 ease-in-out w-fit relative ring-2 ring-primary rounded-3xl py-2 px-4"
             >
-              Dare To Play
+              Dare To Play?
             </Link>
           </div>
         </div>
