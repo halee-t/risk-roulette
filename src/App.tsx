@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Homeboy from "./components/Homeboy";
 import { NewWheel } from "./components/NewWheel";
 import GameOver from "./components/GameOver";
+import Win from "./components/Win";
 
 function App() {
   const [names, setName] = useState<string[]>([
@@ -32,6 +33,7 @@ function App() {
           />
           <Route path="/wheel" element={<NewWheel participants={names} />} />
           <Route path="/gameover" element={<GameOver />} />
+          <Route path="/winner" element={<Win />} />
         </Routes>
       </div>
     </Router>

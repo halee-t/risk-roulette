@@ -202,7 +202,9 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
   };
 
   const navigate = useNavigate();
+
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isWon, setIsWon] = useState(false);
 
   useEffect(() => {
     if (isGameOver) {
@@ -210,10 +212,22 @@ export const NewWheel: React.FC<Props> = ({ participants }) => {
     }
   }, [isGameOver]);
 
-  const [currentPoints, setCurrentPoints] = useState(100);
+  useEffect(() => {
+    if (isWon) {
+      navigate('/winner');
+    }
+  }, [isWon]);
+
+  const [currentPoints, setCurrentPoints] = useState(0);
 
   const addPoints = (earn: number) => {
-    setCurrentPoints((prevPoints) => prevPoints + earn);
+    setCurrentPoints((prevPoints) => {
+      const newPoints = prevPoints + earn; // Ensure health doesn't go below 0
+      if (newPoints >= 500) {
+        setIsWon(true); // Set game over when health reaches 0
+      }
+      return newPoints;
+    });
   };
 
 

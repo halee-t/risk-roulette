@@ -24,7 +24,7 @@ const Answer: React.FC<answerProps> = (props) => {
         props.onTakeDamage(10);
       } else if
         (props.correctness){
-          props.onGetPoints(100);
+          props.onGetPoints(1000);
         }
       // Apply the correct or incorrect colors
     }
