@@ -4,6 +4,9 @@ interface answerProps {
   answerStr: string;
   onTakeDamage: (damage: number) => void;
   correctness: boolean;
+  disableAllAnswers: boolean;
+  onAnswerSelected: (isCorrect: boolean) => void;
+  isAnswerCorrect: boolean;
 }
 
 const Answer: React.FC<answerProps> = (props) => {
@@ -17,23 +20,27 @@ const Answer: React.FC<answerProps> = (props) => {
         ...(props.correctness
           ? ["bg-green-500", "hover:bg-green-600"]
           : ["bg-red-500", "hover:bg-red-600"]),
-      ]); 
+      ]);
 
-      //why aren't you fucking working
-      if (!props.correctness){
+      //take damage on wrong answers
+      if (!props.correctness) {
         props.onTakeDamage(10);
       }
-      // Apply the correct or incorrect colors
+
+      props.onAnswerSelected(props.correctness);
     }
   };
 
   return (
     <div>
       <button
-        className="w-[28rem] h-20 bg-white text-black font-semibold rounded-lg ring ring-2 ring-primary
-        shadow-md hover:bg-primary hover:text-white focus:outline-none focus:ring-2
-         focus:ring-primaryDark focus:ring-opacity-50 px-2"
+        className={`w-[28rem] h-20 bg-white text-black font-semibold rounded-lg ring ring-2 ring-primary
+          shadow-md hover:bg-primary hover:text-white focus:outline-none focus:ring-2
+          focus:ring-primaryDark focus:ring-opacity-50 px-2 ${buttonStyle.join(
+            " "
+          )}`}
         onClick={checkAnswer}
+        disabled={props.disableAllAnswers || isAnswered} // Disable if the correct answer is selected
       >
         {props.answerStr}
       </button>

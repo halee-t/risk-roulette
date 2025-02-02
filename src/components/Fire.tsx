@@ -17,6 +17,11 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
     null
   );
 
+  const [disableAllAnswers, setDisableAllAnswers] = useState(false);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean | null>(
+    null
+  );
+
   useEffect(() => {
     // Pick a random question from the answerData
     const randomQuestionIndex = Math.floor(
@@ -26,6 +31,16 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
 
     setCurrentQuestion(selectedQuestion);
   }, []);
+
+  const handleAnswerSelection = (isCorrect: boolean) => {
+    if (answeredCorrectly === null) {
+      if (!isCorrect) {
+        onTakeDamage(10); // Take damage if the answer is incorrect
+      }
+    }
+    setAnsweredCorrectly(isCorrect);
+    setDisableAllAnswers(true); // Disable all answers when one is selected
+  };
 
   if (!currentQuestion) {
     return <div>Loading...</div>;
@@ -49,6 +64,9 @@ const Fire: React.FC<FireProps> = ({ onTakeDamage }) => {
                 answerStr={answer}
                 onTakeDamage={onTakeDamage}
                 correctness={currentQuestion.correct[index]}
+                disableAllAnswers={disableAllAnswers}
+                onAnswerSelected={handleAnswerSelection}
+                isAnswerCorrect={answeredCorrectly === true}
               ></Answer>
             </div>
           ))}
