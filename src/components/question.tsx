@@ -35,6 +35,7 @@ useEffect(() => {
     let flip = (props.disaster === "flood")
     let pet = (props.disaster === "pet")
     let cast = (props.disaster === "crash")
+    let hacked = (props.disaster === "hack")
 
     return (<>
     <div className={flip ? 'font-semibold font-sans text-center underline rotate-180' : 'font-semibold font-sans text-center underline'}>
@@ -62,14 +63,11 @@ useEffect(() => {
     <div className={flip ? '' : 'hidden'}>
         <img src = "./flood_house.png"/>
     </div>
-    <div>
-        {/*hacker*/}
+    <div className={hacked ? '' : 'hidden'}>
+        <img src = "./bubbleboy_guy_fawkes.png"/>
     </div>
     <div>
         {/*farm*/}
-    </div>
-    <div>
-        {/**/}
     </div>
     </>)
 }
